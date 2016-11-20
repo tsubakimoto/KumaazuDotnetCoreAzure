@@ -1,0 +1,19 @@
+﻿@model List<KumaazuDotnetCoreAzure.Models.Blob>
+@{
+    ViewData["Title"] = "MLBロゴ一覧";
+}
+
+<div id="mlbList">
+    @for (int i = 0; i < 5; i++)
+    {
+        var logos = Model.Skip(i * 6).Take(6);
+        <div class="row">
+            @foreach (var logo in logos)
+            {
+                <div class="col-md-2 text-center">
+                    <img src="@logo.Uri" alt="@logo.Name" title="@logo.Name" style="width:75%;" />
+                </div>
+            }
+        </div>
+    }
+</div>
